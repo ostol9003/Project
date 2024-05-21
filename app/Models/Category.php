@@ -11,11 +11,11 @@ class Category extends Model
     protected $table = "Categories";
     protected $primaryKey = "id";
 
-    public $id;
-    public $name;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $name;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
     
     public function recipes(): BelongsToMany

@@ -12,14 +12,14 @@ class RecipeIngredient extends Model
     protected $table = "Recipe_Ingredients";
     protected $primaryKey = "id";
 
-    public $id;
-    public $recipe_id;
-    public $ingredient_id;
-    public $quantity;
-    public $unit;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $recipe_id;
+    private $ingredient_id;
+    private $quantity;
+    private $unit;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
     // Definicja relacji
     public function recipe(): BelongsTo

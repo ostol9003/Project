@@ -8,13 +8,13 @@ class User extends Model {
     protected $table = "UsersDb";
     protected $primaryKey = "id";
     
-    public $id;
-    public $name;
-    public $email;
-    public $password;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $name;
+    private $email;
+    private $password;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
     public function recipes(): HasMany
     {

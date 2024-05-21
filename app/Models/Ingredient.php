@@ -9,13 +9,13 @@ class Ingredient extends Model {
     protected $table = "Ingredients";
     protected $primaryKey = "id";
 
-    public $id;
-    public $name;
-    public $quantity;
-    public $unit;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $name;
+    private $quantity;
+    private $unit;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
     public function recipeIngredients(): HasMany
     {
