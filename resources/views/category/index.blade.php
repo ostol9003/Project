@@ -5,8 +5,8 @@ Categories
 @endsection
 
 @section('menu')
-    <a class="btn btn-primary" href="/Category/create">Add new category</a>
-    <a class="btn btn-primary" href="/">Home</a>
+    <a class="btn btn-outline-secondary" href="/Category/create">Add new category</a>
+    <a class="btn btn-outline-secondary" href="/">Home</a>
 @endsection
 
 @section('content')
@@ -29,13 +29,13 @@ Categories
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <a href="/Category/{{ $model->id }}/edit" class="btn btn-primary">
+                    <a href="/Category/{{ $model->id }}/edit" class="btn btn-outline-secondary">
                         <i class="bi bi-pencil"></i> Edit
                     </a>
                     <form action="/Category/{{ $model->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-outline-danger">
                             <i class="bi bi-trash"></i> Delete
                         </button>
                     </form>
