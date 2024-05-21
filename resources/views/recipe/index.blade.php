@@ -3,7 +3,7 @@
 @section('title', 'All recipes')
 
 @section('menu')
-    <a class="btn btn-primary" href="/Recipe/create">Add new recipe</a>
+    <a class="btn btn-outline-secondary" href="/Recipe/create">Add new recipe</a>
 @endsection
 
 @section('content')
@@ -31,13 +31,13 @@
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <a href="/Recipe/{{ $model->id }}/edit" class="btn btn-primary">
+                    <a href="/Recipe/{{ $model->id }}/edit" class="btn btn-outline-secondary">
                         <i class="bi bi-pencil"></i> Edit
                     </a>
                     <form action="/Recipe/{{ $model->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-outline-danger">
                             <i class="bi bi-trash"></i> Delete
                         </button>
                     </form>
