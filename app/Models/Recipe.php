@@ -12,14 +12,14 @@ class Recipe extends Model {
     protected $table = "Recipes";
     protected $primaryKey = "id";
     
-    public $id;
-    public $user_id;
-    public $title;
-    public $description;
-    public $cooking_time;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $user_id;
+    private $title;
+    private $description;
+    private $cooking_time;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
    public function user(): BelongsTo
    {
