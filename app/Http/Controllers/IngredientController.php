@@ -10,8 +10,8 @@ use App\Models\Ingredient;
 class IngredientController extends Controller
 {
     public function index() : View{
-        $models = Ingredient::where('IsActive', true)->get();
-        return view("Ingredient.index", ["models" => $models]);
+        $models = Ingredient::where('Is_Active', true)->get();
+        return view("ingredient.index", ["models" => $models]);
     }
 
     public function create() : View{

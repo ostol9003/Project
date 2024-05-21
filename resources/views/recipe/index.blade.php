@@ -29,6 +29,23 @@
                     <p class="card-text">
                         <strong>Description:</strong> {!! $model->description !!}
                     </p>
+
+
+
+
+                    // tutaj jest jak sie korzysta z kluczy obcych
+                    <p class="card-text">
+                        <strong>Owner:</strong> {!! $model->User->name !!}  {!! $model->User->email !!}
+                    </p>
+                    <p class="card-text">
+                        <strong>Ingredients:</strong> 
+                        @foreach($model->recipeIngredients as $recipeIngredient)
+                        {!! $recipeIngredient->ingredient->name !!}
+                        @endforeach
+                    </p>
+
+
+
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                     <a href="/Recipe/{{ $model->id }}/edit" class="btn btn-outline-secondary">

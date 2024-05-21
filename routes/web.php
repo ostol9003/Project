@@ -4,6 +4,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,32 @@ Route::post("/ingredients/add-to-db", [IngredientController::class, "addToDb"]);
 Route::post("/ingredients/update/{id}", [IngredientController::class, "update"]);
 Route::post("/ingredients/delete/{id}", [IngredientController::class, "delete"]);
 
+// Recipe
+Route::get("/recipes", [RecipeController::class, "index"]);
+Route::get("/recipes/create", [RecipeController::class, "create"]);
+Route::get("/recipes/edit/{id}", [RecipeController::class, "edit"]);
+
+Route::post("/recipes/add-to-db", [RecipeController::class, "addToDb"]);
+Route::post("/recipes/update/{id}", [RecipeController::class, "update"]);
+Route::post("/recipes/delete/{id}", [RecipeController::class, "delete"]);
+
+// RecipeCategory
+Route::get("/recipe-category", [RecipeCategoryController::class, "index"]);
+Route::get("/recipe-category/create", [RecipeCategoryController::class, "create"]);
+Route::get("/recipe-category/edit/{id}", [RecipeCategoryController::class, "edit"]);
+
+Route::post("/recipe-category/add-to-db", [RecipeCategoryController::class, "addToDb"]);
+Route::post("/recipe-category/update/{id}", [RecipeCategoryController::class, "update"]);
+Route::post("/recipe-category/delete/{id}", [RecipeCategoryController::class, "delete"]);
+
+// RecipeIngredient
+Route::get("/recipe-ingredient", [RecipeIngredientController::class, "index"]);
+Route::get("/recipe-ingredient/create", [RecipeIngredientController::class, "create"]);
+Route::get("/recipe-ingredient/edit/{id}", [RecipeIngredientController::class, "edit"]);
+
+Route::post("/recipe-ingredient/add-to-db", [RecipeIngredientController::class, "addToDb"]);
+Route::post("/recipe-ingredient/update/{id}", [RecipeIngredientController::class, "update"]);
+Route::post("/recipe-ingredient/delete/{id}", [RecipeIngredientController::class, "delete"]);
 
 // User
 Route::get("/users", [UserController::class, "index"]);

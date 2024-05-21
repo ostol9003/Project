@@ -32,6 +32,7 @@ class Recipe extends Model {
        return $this->hasMany(RecipeIngredient::class);
    }
 
+
    public function categories(): BelongsToMany
    {
        return $this->belongsToMany(Category::class, 'recipe_category');

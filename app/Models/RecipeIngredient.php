@@ -9,7 +9,7 @@ use App\Models\Recipe;
 
 class RecipeIngredient extends Model
 {
-    protected $table = "Recipe_Ingredients";
+    protected $table = "Recipe_Ingredient";
     protected $primaryKey = "id";
 
     private $id;
