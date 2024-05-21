@@ -14,17 +14,18 @@ Categories
     <div class="row gy-3">
         @foreach($models as $model)
         <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $model->name }}</h5>
+        <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+                    <h5 class="card-title">{{$model->name}}</h5>
                     <p class="card-text">
                         <strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}
                     </p>
                     <p class="card-text">
-                        <strong>Created At:</strong> {{ $model->created_at}}
+                        <strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}
                     </p>
                     <p class="card-text">
-                        <strong>Updated At:</strong> {{ $model->updated_at }}
+                        <strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
@@ -39,9 +40,11 @@ Categories
                         </button>
                     </form>
                 </div>
-            </div>
+</div>
         </div>
         @endforeach
     </div>
 </div>
 @endsection
+
+

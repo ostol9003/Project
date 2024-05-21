@@ -10,12 +10,12 @@ class RecipeCategory extends Model
     protected $table = "Recipe_Category";
     protected $primaryKey = "id";
     
-    public $id;
-    public $recipe_id;
-    public $category_id;
-    public $is_active;
-    public $created_at;
-    public $updated_at;
+    private $id;
+    private $recipe_id;
+    private $category_id;
+    private $is_active;
+    private $created_at;
+    private $updated_at;
 
     
     public function recipe()

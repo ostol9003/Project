@@ -10,7 +10,7 @@ use Illuminate\View\View;
 class CategoryController extends Controller
 {
     public function index() : View{
-        $models = Category::where('Is_Active', true)->get();
+        $models = Category::all();
         return view("category.index", ["models" => $models]);
     }
 
