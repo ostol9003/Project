@@ -40,7 +40,7 @@
                     <p class="card-text">
                         <strong>Ingredients:</strong> 
                         @foreach($model->recipeIngredients as $recipeIngredient)
-                        {!! $recipeIngredient->ingredient->name !!}
+                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->ingredient->quantity !!} {!! $recipeIngredient->ingredient->unit!!})
                         @endforeach
                     </p>
 
