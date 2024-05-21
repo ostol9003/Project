@@ -40,8 +40,8 @@ class UserController extends Controller
      public function update(Request $request, int $id) : RedirectResponse {
          $model = User::find($id);
          $model -> name = $request->input("Name"); 
-         $model -> quantity = $request->input("Quantity");
-         $model -> unit = $request->input("Unit");
+         $model -> email = $request->input("Email");
+         $model -> password = $request->input("Password");
          $model -> updated_at = date('Y-m-d');
          $model -> save();
          return redirect('/users'); 

@@ -37,10 +37,62 @@ Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <div class="container">
         <div class="row gy-3">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <a href="/tasks" style="text-decoration:none">
+                <a href="/ingredients" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
-                            <p class="card-title h5 text-black clearfix">Tasks</p>
+                            <p class="card-title h5 text-black clearfix">Ingredients</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="/recipes" style="text-decoration:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title h5 text-black clearfix">Recipes</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="/recipies_categories" style="text-decoration:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title h5 text-black clearfix">Recipes-Categories</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="/reciepies_ingredients" style="text-decoration:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title h5 text-black clearfix">Recipies-Ingredients</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="/users" style="text-decoration:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title h5 text-black clearfix">Users</p>
                         </div>
                     </div>
                 </a>
