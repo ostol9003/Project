@@ -12,7 +12,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index() : View{
-        $models = User::where('IsActive', true)->get();
+        $models = User::where('Is_Active', true)->get();
         return view("User.index", ["models" => $models]);
     }
 
