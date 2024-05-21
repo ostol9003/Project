@@ -5,7 +5,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Routing\Controller;
-use Ingredient;
+use App\Models\Ingredient;
 
 class IngredientController extends Controller
 {
