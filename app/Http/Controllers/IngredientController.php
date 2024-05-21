@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Routing\Controller;
 use Ingredient;
 
 class IngredientController extends Controller
