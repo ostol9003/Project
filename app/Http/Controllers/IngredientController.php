@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Ingredient;
+use Illuminate\Routing\Controller;
+use App\Models\Ingredient;
 
 class IngredientController extends Controller
 {
     public function index() : View{
-        $models = Ingredient::where('IsActive', true)->get();
-        return view("Ingredient.index", ["models" => $models]);
+        $models = Ingredient::where('Is_Active', true)->get();
+        return view("ingredient.index", ["models" => $models]);
     }
 
     public function create() : View{

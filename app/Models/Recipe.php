@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 use App\Models\Category;
 use App\Models\RecipeIngredient;
@@ -30,6 +31,7 @@ class Recipe extends Model {
    {
        return $this->hasMany(RecipeIngredient::class);
    }
+
 
    public function categories(): BelongsToMany
    {
