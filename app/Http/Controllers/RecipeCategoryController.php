@@ -14,7 +14,7 @@ class RecipeCategoryController extends Controller
     public function index(): View
     {
         $models = RecipeCategory::where('Is_Active', true)->get();
-        return view("Recipe.index", ["models" => $models]);
+        return view("RecipeCategory.index", ["models" => $models]);
     }
 
     public function create(): View
