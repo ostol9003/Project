@@ -4,7 +4,9 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecipeCategoryController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\RecipeIngredientController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
