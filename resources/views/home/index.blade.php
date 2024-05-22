@@ -63,7 +63,7 @@ Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <div class="container">
         <div class="row gy-3">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <a href="/recipe_category" style="text-decoration:none">
+                <a href="/recipe-category" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
                             <p class="card-title h5 text-black clearfix">Recipes-Categories</p>
@@ -79,7 +79,7 @@ Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
                 <a href="/recipe-ingredient" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
-                            <p class="card-title h5 text-black clearfix">Recipies-Ingredients</p>
+                            <p class="card-title h5 text-black clearfix">Recipes-Ingredients</p>
                         </div>
                     </div>
                 </a>

@@ -1,9 +1,9 @@
 @extends('main')
 
-@section('title', 'recipe category')
+@section('title', 'Ingredients')
 
 @section('menu')
-    <a class="btn btn-outline-secondary" href="/RecipeCategory/create">Add new recipe category</a>
+    <a class="btn btn-outline-secondary" href="/RecipeIngredient/create">Add new recipe ingredient</a>
     <a class="btn btn-outline-secondary" href="/">Home</a>
 @endsection
 
@@ -19,23 +19,29 @@
                         <strong>Recipe ID:</strong> {{ $model->recipe_id }}
                     </p>
                     <p class="card-text">
-                        <strong>Category ID:</strong> {{ $model->category_id }}
+                        <strong>Ingredient ID:</strong> {{ $model->ingredient_id }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Quantity:</strong> {{ $model->quantity }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Unit:</strong> {{ $model->unit }}
                     </p>
                     <p class="card-text">
                         <strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}
                     </p>
                     <p class="card-text">
-                        <strong>Created At:</strong> {{ $model->created_at->format('Y-m-d') }}
+                        <strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}
                     </p>
                     <p class="card-text">
-                        <strong>Updated At:</strong> {{ $model->updated_at->format('Y-m-d') }}
+                        <strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}
                     </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <a href="/RecipeCategory/{{ $model->id }}/edit" class="btn btn-outline-secondary">
+                    <a href="/RecipeIngredient/{{ $model->id }}/edit" class="btn btn-outline-secondary">
                         <i class="bi bi-pencil"></i> Edit
                     </a>
-                    <form action="/RecipeCategory/{{ $model->id }}" method="POST">
+                    <form action="/RecipeIngredient/{{ $model->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger">

@@ -4,6 +4,7 @@
 
 @section('menu')
     <a class="btn btn-outline-secondary" href="/Recipe/create">Add new recipe</a>
+    <a class="btn btn-outline-secondary" href="/">Home</a>
 @endsection
 
 @section('content')
