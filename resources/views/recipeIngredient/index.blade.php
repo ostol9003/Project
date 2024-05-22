@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'recipe ingredient')
+@section('title', 'Recipe ingredient')
 
 @section('menu')
     <a class="btn btn-outline-secondary" href="/RecipeIngredient/create">Add new recipe ingredient</a>
