@@ -1,0 +1,48 @@
+.navbar-nav .nav-link {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-weight: normal;
+}
+
+.navbar-brand img{
+    height: 50px;
+    width: 50px;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.logo {
+    font-family: "Ms Madi", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Odstęp między logo a navbarem */
+}
+
+.header {
+    text-align: center;
+    margin: 20px 0; /* Dodatkowy margines wokół logo */
+}
+h1{
+    font-family: "Montserrat", sans-serif;
+    justify-content: center;
+    font-weight: lighter;
+}
+.btn{
+    font-family: "Montserrat", sans-serif;
+}
+.carousel-item img {
+    height: 400px; 
+    object-fit: cover; 
+}
+h2{
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: lighter;
+}

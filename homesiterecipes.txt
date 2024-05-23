@@ -1,0 +1,39 @@
+<!-- TODO: controller 
+    <div class="container mt-4">
+    <div class="row gy-3">
+      @foreach($models as $model) 
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $model->title }}</h5>
+                    <p class="card-text">
+                        <strong>Cooking Time:</strong> {{ $model->cooking_time }} minutes
+                    </p>
+                    <p class="card-text">
+                        <strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Description:</strong> {!! $model->description !!}
+                    </p>
+                    <p class="card-text">
+                        <strong>Owner:</strong> {!! $model->User->name !!}  {!! $model->User->email !!}
+                    </p>
+                    <p class="card-text">
+                        <strong>Ingredients:</strong> 
+                        @foreach($model->recipeIngredients as $recipeIngredient)
+                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->ingredient->quantity !!} {!! $recipeIngredient->ingredient->unit!!})
+                        @endforeach
+                    </p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+TODO -->
