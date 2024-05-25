@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ url('recipes/add-to-db') }}">
+    <form method="POST" action="/recipes/add-to-db">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>

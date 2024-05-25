@@ -42,7 +42,14 @@
                 <label for="cooking_time" class="form-label">Cooking Time</label>
                 <input type="text" class="form-control" name="cooking_time" value="{{ old('cooking_time', $model->cooking_time) }}" required>
             </div>
-
+            <div class="col-md-6 mb-3">
+                <label for="user_id" class="form-label">User</label>
+                <select class="form-select" name="user_id" required>
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
 
         <div class="row">
@@ -58,7 +65,7 @@
                     @endforeach
                 </select>
             </div>
-        </div>
+        </div> 
         
         <button type="submit" class="btn btn-outline-secondary">Update</button>
     </form>
