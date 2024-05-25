@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Routing\Controller;
 use App\Models\Recipe;
+use App\Models\RecipeCategory;
 use App\Models\RecipeIngredient;
 use App\Models\User;
 
@@ -38,6 +39,14 @@ class RecipeController extends Controller
 
     public function addToDb(Request $request): RedirectResponse
     {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|min:10',
+            'cooking_time' => 'required|integer|min:1',
+            'ingredients.*.Quantity' => 'required_with:ingredients.*.checked|numeric|min:0.01',
+            'ingredients.*.Unit' => 'required_with:ingredients.*.checked|string|max:5',
+        ]);
+
         $model = new Recipe();
         $model->title = $request->input('title');
         $model->description = $request->input('description');
@@ -48,7 +57,7 @@ class RecipeController extends Controller
         $model->is_active = true;
         $model->save();
 
-      
+   
         $categories = $request->input('categories', []);
         foreach ($categories as $categoryId) {
             $model->categories()->attach(
@@ -56,8 +65,8 @@ class RecipeController extends Controller
                 ['created_at' => now(), 'updated_at' => now()]
             );
 
-            // 
-         
+       
+            if ($request->has('ingredients')) {
                 foreach ($request->input('ingredients') as $ingredientId => $details) {
                     if (isset($details['checked'])) {
                         $recipeIngredient = new RecipeIngredient();
@@ -70,7 +79,7 @@ class RecipeController extends Controller
                         $recipeIngredient->save();
                     }
                 }
-            
+            }
 
             return redirect('/recipes');
         }
@@ -90,9 +99,22 @@ class RecipeController extends Controller
 
     public function delete(Request $request, int $id): RedirectResponse
     {
+        // Znajdź przepis po id
         $model = Recipe::find($id);
-        $model->is_active = false;
-        $model->save();
+    
+        if ($model) {
+            $model->is_active = false;
+            $model->save();
+    
+            RecipeCategory::
+                where('recipe_id', $model->id)
+                ->update(['is_active' => false, 'updated_at' => now()]);
+
+            $model->recipeIngredients()->update(['is_active' => false, 'updated_at' => now()]);
+        }
+    
         return redirect('/recipes');
     }
+    
+    
 }

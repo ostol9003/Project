@@ -7,6 +7,17 @@
 @section('content')
 <div class="container mt-5">
     <h1>New Recipe</h1>
+    
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form method="POST" action="{{ url('recipes/add-to-db') }}">
         @csrf
         <div class="mb-3">
@@ -61,14 +72,17 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const checkboxes = document.querySelectorAll('.ingredient-checkbox');
-        checkboxes.forEach(checkbox => {
+        document.querySelectorAll('.ingredient-checkbox').forEach(function (checkbox) {
             checkbox.addEventListener('change', function () {
-                const isChecked = checkbox.checked;
-                const quantityInput = checkbox.closest('.form-check').querySelector('.ingredient-quantity');
-                const unitInput = checkbox.closest('.form-check').querySelector('.ingredient-unit');
+                const isChecked = this.checked;
+                const quantityInput = this.closest('.form-check').querySelector('.ingredient-quantity');
+                const unitInput = this.closest('.form-check').querySelector('.ingredient-unit');
                 quantityInput.disabled = !isChecked;
                 unitInput.disabled = !isChecked;
+                if (!isChecked) {
+                    quantityInput.value = '';
+                    unitInput.value = '';
+                }
             });
         });
     });
