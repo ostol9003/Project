@@ -11,7 +11,9 @@ class HomeController extends Controller
 {
     public function index() : View{
         $models = Recipe::with('RecipeIngredients.ingredient')
-        ->where('Is_Active', true)->where('is_promoted',true);
+        ->where('Is_Active', true)
+        ->where('is_promoted',true)
+        ->get();
         return view("home.index", ["models" => $models]);
     }
 }
