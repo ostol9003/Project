@@ -48,7 +48,7 @@ class RecipeController extends Controller
         $model->is_active = true;
         $model->save();
 
-        // Attach categories
+      
         $categories = $request->input('categories', []);
         foreach ($categories as $categoryId) {
             $model->categories()->attach(
@@ -56,8 +56,8 @@ class RecipeController extends Controller
                 ['created_at' => now(), 'updated_at' => now()]
             );
 
-            // Attach ingredients with quantities and units
-            if ($request->has('ingredients')) {
+            // 
+         
                 foreach ($request->input('ingredients') as $ingredientId => $details) {
                     if (isset($details['checked'])) {
                         $recipeIngredient = new RecipeIngredient();
@@ -70,7 +70,7 @@ class RecipeController extends Controller
                         $recipeIngredient->save();
                     }
                 }
-            }
+            
 
             return redirect('/recipes');
         }
