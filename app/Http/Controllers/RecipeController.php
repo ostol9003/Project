@@ -15,9 +15,18 @@ use App\Models\User;
 
 class RecipeController extends Controller
 {
-    public function index(): View
-    {
-        $models = Recipe::with('RecipeIngredients.ingredient')->where('Is_Active', true)->get();
+    public function index(Request $request): View
+    {        
+        $name = $request->input('name');
+
+        if ($name) {
+            $models = Recipe::with('RecipeIngredients.ingredient')
+                ->where('Is_Active', true)
+                ->where('title', 'LIKE', "%$name%")
+                ->get();
+        } else {
+            $models = Recipe::with('RecipeIngredients.ingredient')->where('Is_Active', true)->get();
+        }
         return view("Recipe.index", ["models" => $models]);
     }
 
@@ -52,6 +61,8 @@ class RecipeController extends Controller
         $model->description = $request->input('description');
         $model->cooking_time = $request->input('cooking_time');
         $model->user_id = $request->input('user_id');
+        $model->url = $request->input('url');
+        $model->is_promoted = $request->input('is_promoted')? true : false;
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
         $model->is_active = true;
@@ -92,6 +103,8 @@ class RecipeController extends Controller
         $model->description = $request->input("Description");
         $model->cooking_time = $request->input("Cooking_time");
         $model->user_id = $request->input("User_id");
+        $model->url = $request->input('url');
+        $model->is_promoted = $request->input('is_promoted')? true : false;
         $model->updated_at = date('Y-m-d');
         $model->save();
         return redirect('/recipes');
@@ -99,7 +112,6 @@ class RecipeController extends Controller
 
     public function delete(Request $request, int $id): RedirectResponse
     {
-        // Znajdź przepis po id
         $model = Recipe::find($id);
     
         if ($model) {

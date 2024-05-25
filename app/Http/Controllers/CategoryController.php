@@ -32,6 +32,7 @@ class CategoryController extends Controller
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
         $model -> is_active = true;
+        $model->url = $request->input('url');
         $model -> save();
         return redirect('/categories'); 
      }   
@@ -39,6 +40,7 @@ class CategoryController extends Controller
          $model = Category::find($id);
          $model -> name = $request->input("Name"); 
          $model -> updated_at = date('Y-m-d');
+         $model->url = $request->input('url');
          $model -> save();
          return redirect('/categories'); 
       }   
