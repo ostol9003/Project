@@ -37,7 +37,7 @@ class RecipeIngredientController extends Controller
         $model->unit = $request->input("Unit");
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        $model->isActive = true;
+        $model->is_active = true;
         $model->save();
         return redirect('/recipe-ingredient');
     }
@@ -56,7 +56,7 @@ class RecipeIngredientController extends Controller
     public function delete(Request $request, int $id): RedirectResponse
     {
         $model = RecipeIngredient::find($id);
-        $model->IsActive = false;
+        $model->is_active = false;
         $model->save();
         return redirect('/recipe-ingredient');
     }
