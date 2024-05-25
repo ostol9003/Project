@@ -21,6 +21,8 @@ class Recipe extends Model {
     private $is_active;
     private $created_at;
     private $updated_at;
+    private $url;
+    private $is_promoted;
 
    public function user(): BelongsTo
    {
