@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>New Recipe</h1>
+    <h1>Edit Recipe</h1>
     
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ url('recipes/add-to-db') }}">
+    <form method="POST" action="/recipes/update/{{$model->id}}">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -83,7 +83,7 @@
             @endforeach
         </div>
         
-        <button type="submit" class="btn btn-outline-secondary">Create</button>
+        <button type="submit" class="btn btn-outline-secondary">Update</button>
     </form>
 </div>
 <br>

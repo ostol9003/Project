@@ -6,8 +6,8 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>New User</h1>
-    <form method="POST" action="/users/add-to-db">
+    <h1>Edit User</h1>
+    <form method="POST" action="/users/update/{{$model->id}}">
         @csrf
         <div class="row">
             <div class="col-md-6 mb-3">
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-outline-secondary">Create</button>
+        <button type="submit" class="btn btn-outline-secondary">Update</button>
     </form>
 </div>
 <br>

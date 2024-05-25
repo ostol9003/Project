@@ -13,6 +13,10 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="Name" value="{{$model->name}}" required>
         </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Image url</label>
+            <input type="text" class="form-control" name="url" value="{{$model->url}}" required>
+        </div>
         <button type="submit" class="btn btn-outline-secondary" type="submit">Create</button>
     </form>
 </div>

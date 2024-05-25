@@ -2,9 +2,6 @@
 
 @section('title', 'Recipe category')
 
-@section('menu')
-    <a class="btn btn-outline-secondary" href="/RecipeCategory/create">New recipe category</a>
-@endsection
 
 @section('content')
 <div class="container mt-4">
@@ -23,22 +20,6 @@
                     <li class="list-group-item"><strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}</li>
                     <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>
                 </ul>
-                <div class="card-body row">
-                    <div class="col">
-                    <a href="/RecipeCategory/{{ $model->id }}/edit" class="btn btn-outline-secondary">
-                        <i class="bi bi-pencil"></i> Edit
-                    </a>
-                    </div>
-                    <div class="col">
-                    <form action="/RecipeCategory/{{ $model->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">
-                            <i class="bi bi-trash"></i> Delete
-                        </button>
-                    </form>
-                    </div>
-                </div>
 
             </div>
         </div>
