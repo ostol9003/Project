@@ -29,9 +29,9 @@ class UserController extends Controller
     
     public function addToDb(Request $request) : RedirectResponse {
         $model = new User();
-        $model -> name = $request->input("Name"); 
-        $model -> email = $request->input("Email");
-        $model -> password = $request->input("Password");
+        $model -> name = $request->input("name"); 
+        $model -> email = $request->input("email");
+        $model -> password = $request->input("password");
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
         $model -> is_active = true;
@@ -40,9 +40,9 @@ class UserController extends Controller
      }   
      public function update(Request $request, int $id) : RedirectResponse {
          $model = User::find($id);
-         $model -> name = $request->input("Name"); 
-         $model -> email = $request->input("Email");
-         $model -> password = $request->input("Password");
+         $model -> name = $request->input("name"); 
+         $model -> email = $request->input("email");
+         $model -> password = $request->input("password");
          $model -> updated_at = date('Y-m-d');
          $model -> save();
          return redirect('/users'); 

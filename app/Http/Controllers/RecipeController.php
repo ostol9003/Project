@@ -106,11 +106,19 @@ class RecipeController extends Controller
 
     public function update(Request $request, int $id): RedirectResponse
     {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|min:10',
+            'cooking_time' => 'required|integer|min:1',
+            'ingredients.*.Quantity' => 'required_with:ingredients.*.checked|numeric|min:0.01',
+            'ingredients.*.Unit' => 'required_with:ingredients.*.checked|string|max:5',
+        ]);
+        
         $model = Recipe::find($id);
-        $model->title = $request->input("Title");
-        $model->description = $request->input("Description");
-        $model->cooking_time = $request->input("Cooking_time");
-        $model->user_id = $request->input("User_id");
+        $model->title = $request->input("title");
+        $model->description = $request->input("description");
+        $model->cooking_time = $request->input("cooking_time");
+        $model->user_id = $request->input("user_id");
         $model->url = $request->input('url');
         $model->is_promoted = $request->input('is_promoted')? true : false;
         $model->updated_at = date('Y-m-d');

@@ -28,7 +28,7 @@ class CategoryController extends Controller
     
     public function addToDb(Request $request) : RedirectResponse {
         $model = new Category();
-        $model -> name = $request->input("Name"); 
+        $model -> name = $request->input("name"); 
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
         $model -> is_active = true;
@@ -38,7 +38,7 @@ class CategoryController extends Controller
      }   
      public function update(Request $request, int $id) : RedirectResponse {
          $model = Category::find($id);
-         $model -> name = $request->input("Name"); 
+         $model -> name = $request->input("name"); 
          $model -> updated_at = date('Y-m-d');
          $model->url = $request->input('url');
          $model -> save();
