@@ -59,22 +59,6 @@
                 </select>
             </div>
         </div>
-
-        <div class="mb-3">
-            <label for="ingredients" class="form-label">Ingredients</label>
-            @foreach($ingredients as $ingredient)
-            <div class="form-check mb-2">
-                <input class="form-check-input ingredient-checkbox" type="checkbox" name="ingredients[{{ $ingredient->id }}][checked]" id="ingredient-{{ $ingredient->id }}">
-                <label class="form-check-label" for="ingredient-{{ $ingredient->id }}">
-                    {{ $ingredient->name }}
-                </label>
-                <div class="input-group mt-2">
-                    <input type="number" class="form-control ingredient-quantity" name="ingredients[{{ $ingredient->id }}][Quantity]" placeholder="Quantity" disabled>
-                    <input type="text" class="form-control ingredient-unit" name="ingredients[{{ $ingredient->id }}][Unit]" placeholder="Unit" disabled>
-                </div>
-            </div>
-            @endforeach
-        </div>
         
         <button type="submit" class="btn btn-outline-secondary">Update</button>
     </form>
@@ -82,22 +66,3 @@
 <br>
 @endsection
 
-@section('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.ingredient-checkbox').forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                const isChecked = this.checked;
-                const quantityInput = this.closest('.form-check').querySelector('.ingredient-quantity');
-                const unitInput = this.closest('.form-check').querySelector('.ingredient-unit');
-                quantityInput.disabled = !isChecked;
-                unitInput.disabled = !isChecked;
-                if (!isChecked) {
-                    quantityInput.value = '';
-                    unitInput.value = '';
-                }
-            });
-        });
-    });
-</script>
-@endsection

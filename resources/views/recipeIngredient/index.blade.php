@@ -2,10 +2,6 @@
 
 @section('title', 'Recipe ingredient')
 
-@section('menu')
-<a class="btn btn-outline-secondary" href="/RecipeIngredient/create">New recipe ingredient</a>
-@endsection
-
 @section('content')
 <div class="container mt-4">
     <div class="row gy-3">
