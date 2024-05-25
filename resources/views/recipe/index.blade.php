@@ -35,13 +35,13 @@
                         </a>
                     </div>
                     <div class="col">
-                        <form action="/Recipe/{{ $model->id }}" method="POST">
+                  
                             @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">
-                                <i class="bi bi-trash"></i> Delete
-                            </button>
-                        </form>
+                            <form method="post" action="/recipes/delete/{!! $model->id !!}">
+                                @csrf
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                       
                     </div>
                 </div>
 

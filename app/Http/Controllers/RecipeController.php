@@ -49,28 +49,33 @@ class RecipeController extends Controller
         $model->save();
 
         // Attach categories
-        if ($request->has('categories')) {
-            $model->categories()->attach($request->input('categories'));
-        }
+        $categories = $request->input('categories', []);
+        foreach ($categories as $categoryId) {
+            $model->categories()->attach(
+                $categoryId,
+                ['created_at' => now(), 'updated_at' => now()]
+            );
 
-        // Attach ingredients with quantities and units
-        if ($request->has('ingredients')) {
-            foreach ($request->input('ingredients') as $ingredientId => $details) {
-                if (isset($details['checked'])) {
-                    $recipeIngredient = new RecipeIngredient();
-                    $recipeIngredient->recipe_id = $model->id;
-                    $recipeIngredient->ingredient_id = $ingredientId;
-                    $recipeIngredient->quantity = $details['quantity'];
-                    $recipeIngredient->unit = $details['unit'];
-                    $recipeIngredient->created_at = date('Y-m-d');
-                    $recipeIngredient->updated_at = date('Y-m-d');
-                    $recipeIngredient->save();
+            // Attach ingredients with quantities and units
+            if ($request->has('ingredients')) {
+                foreach ($request->input('ingredients') as $ingredientId => $details) {
+                    if (isset($details['checked'])) {
+                        $recipeIngredient = new RecipeIngredient();
+                        $recipeIngredient->recipe_id = $model->id;
+                        $recipeIngredient->ingredient_id = $ingredientId;
+                        $recipeIngredient->quantity = $details['Quantity'];
+                        $recipeIngredient->unit = $details['Unit'];
+                        $recipeIngredient->created_at = date('Y-m-d');
+                        $recipeIngredient->updated_at = date('Y-m-d');
+                        $recipeIngredient->save();
+                    }
                 }
             }
-        }
 
-        return redirect('/recipes');
+            return redirect('/recipes');
+        }
     }
+
     public function update(Request $request, int $id): RedirectResponse
     {
         $model = Recipe::find($id);
@@ -86,7 +91,7 @@ class RecipeController extends Controller
     public function delete(Request $request, int $id): RedirectResponse
     {
         $model = Recipe::find($id);
-        $model->IsActive = false;
+        $model->is_active = false;
         $model->save();
         return redirect('/recipes');
     }
