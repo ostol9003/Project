@@ -17,12 +17,12 @@ class RecipeController extends Controller
 {
     public function index(Request $request): View
     {        
-        $search = $request->input('search');
+        $name = $request->input('name');
 
-        if ($search) {
+        if ($name) {
             $models = Recipe::with('RecipeIngredients.ingredient')
                 ->where('Is_Active', true)
-                ->where('title', 'LIKE', "%$search%")
+                ->where('title', 'LIKE', "%$name%")
                 ->get();
         } else {
             $models = Recipe::with('RecipeIngredients.ingredient')->where('Is_Active', true)->get();
@@ -62,7 +62,7 @@ class RecipeController extends Controller
         $model->cooking_time = $request->input('cooking_time');
         $model->user_id = $request->input('user_id');
         $model->url = $request->input('url');
-        $model->is_promoted = $request->input('is_promoted');
+        $model->is_promoted = $request->input('is_promoted')? true : false;
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
         $model->is_active = true;
@@ -104,7 +104,7 @@ class RecipeController extends Controller
         $model->cooking_time = $request->input("Cooking_time");
         $model->user_id = $request->input("User_id");
         $model->url = $request->input('url');
-        $model->is_promoted = $request->input('is_promoted');
+        $model->is_promoted = $request->input('is_promoted')? true : false;
         $model->updated_at = date('Y-m-d');
         $model->save();
         return redirect('/recipes');
