@@ -33,8 +33,8 @@ class RecipeCategoryController extends Controller
     public function addToDb(Request $request): RedirectResponse
     {
         $model = new RecipeCategory();
-        $model->recipe_id = $request->input("Recipe_id");
-        $model->category_id = $request->input("Category_id");
+        $model->recipe_id = $request->input("recipe_id");
+        $model->category_id = $request->input("category_id");
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
         $model->is_active = true;
@@ -44,8 +44,8 @@ class RecipeCategoryController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $model = RecipeCategory::find($id);
-        $model->recipe_id = $request->input("Recipe_id");
-        $model->category_id = $request->input("Category_id");
+        $model->recipe_id = $request->input("recipe_id");
+        $model->category_id = $request->input("category_id");
         $model->updated_at = date('Y-m-d');
         $model->save();
         return redirect('/recipe-category');

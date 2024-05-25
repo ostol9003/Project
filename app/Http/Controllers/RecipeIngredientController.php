@@ -31,10 +31,10 @@ class RecipeIngredientController extends Controller
     public function addToDb(Request $request): RedirectResponse
     {
         $model = new RecipeIngredient();
-        $model->recipe_id = $request->input("Recipe_id");
-        $model->ingredient_id = $request->input("Ingredient_id");
-        $model->quantity = $request->input("Quantity");
-        $model->unit = $request->input("Unit");
+        $model->recipe_id = $request->input("recipe_id");
+        $model->ingredient_id = $request->input("ingredient_id");
+        $model->quantity = $request->input("quantity");
+        $model->unit = $request->input("unit");
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
         $model->is_active = true;
@@ -44,10 +44,10 @@ class RecipeIngredientController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $model = RecipeIngredient::find($id);
-        $model->recipe_id = $request->input("Recipe_id");
-        $model->ingredient_id = $request->input("Ingredient_id");
-        $model->quantity = $request->input("Quantity");
-        $model->unit = $request->input("Unit");
+        $model->recipe_id = $request->input("recipe_id");
+        $model->ingredient_id = $request->input("ingredient_id");
+        $model->quantity = $request->input("quantity");
+        $model->unit = $request->input("unit");
         $model->updated_at = date('Y-m-d');
         $model->save();
         return redirect('/recipe-ingredient');
