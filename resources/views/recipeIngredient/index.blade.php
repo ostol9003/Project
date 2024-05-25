@@ -27,18 +27,9 @@
                 </ul>
                 <div class="card-body row">
                     <div class="col">
-                        <a href="/RecipeIngredient/{{ $model->id }}/edit" class="btn btn-outline-secondary">
+                        <a href="/recipe-ingredient/edit/{{$model->id}}" class="btn btn-outline-secondary">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
-                    </div>
-                    <div class="col">
-                        <form action="/RecipeIngredient/{{ $model->id }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">
-                                <i class="bi bi-trash"></i> Delete
-                            </button>
-                        </form>
                     </div>
                 </div>
 
