@@ -23,17 +23,17 @@
                 </ul>
                 <div class="card-body row">
                     <div class="col">
-                        <a href="/Category/{{ $model->id }}/edit" class="btn btn-outline-secondary">
+                        <form>
+                        <a href="/categories/edit/{{$model->id}}" class="btn btn-outline-secondary">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
+                        </form>
                     </div>
                     <div class="col">
-                        <form action="/Category/{{ $model->id }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">
-                                <i class="bi bi-trash"></i> Delete
-                            </button>
+                        @csrf
+                            <form method="post" action="/categories/delete/{!! $model->id !!}">
+                                @csrf
+                                <button class="btn btn-outline-danger" type="submit">Delete</button>
                         </form>
                     </div>
                 </div>

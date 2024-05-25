@@ -12,7 +12,6 @@
         @foreach($models as $model)
         <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">ID: {{ $model->id}}</h5>
                 </div>
