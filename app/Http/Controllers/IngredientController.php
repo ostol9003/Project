@@ -30,7 +30,7 @@ class IngredientController extends Controller
         $model -> name = $request->input("Name"); 
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
-        $model -> isActive = true;
+        $model -> is_active = true;
         $model -> save();
         return redirect('/categories'); 
      }   
@@ -44,7 +44,7 @@ class IngredientController extends Controller
  
       public function delete(Request $request, int $id) : RedirectResponse {
          $model = Ingredient::find($id);
-         $model -> IsActive = false;
+         $model -> is_active = false;
          $model -> save();
          return redirect('/ingredients'); 
       }   

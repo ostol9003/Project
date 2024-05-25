@@ -37,7 +37,7 @@ class RecipeCategoryController extends Controller
         $model->category_id = $request->input("Category_id");
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        $model->isActive = true;
+        $model->is_active = true;
         $model->save();
         return redirect('/recipe-category');
     }
@@ -54,7 +54,7 @@ class RecipeCategoryController extends Controller
     public function delete(Request $request, int $id): RedirectResponse
     {
         $model = RecipeCategory::find($id);
-        $model->IsActive = false;
+        $model->is_active = false;
         $model->save();
         return redirect('/recipe-category');
     }

@@ -34,7 +34,7 @@ class UserController extends Controller
         $model -> password = $request->input("Password");
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
-        $model -> isActive = true;
+        $model -> is_active = true;
         $model -> save();
         return redirect('/users'); 
      }   
@@ -50,7 +50,7 @@ class UserController extends Controller
  
       public function delete(Request $request, int $id) : RedirectResponse {
          $model = User::find($id);
-         $model -> IsActive = false;
+         $model -> is_active = false;
          $model -> save();
          return redirect('/users'); 
       }   
