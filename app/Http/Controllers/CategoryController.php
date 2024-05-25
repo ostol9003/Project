@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $model -> name = $request->input("Name"); 
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
-        $model -> isActive = true;
+        $model -> is_active = true;
         $model -> save();
         return redirect('/categories'); 
      }   
@@ -45,7 +45,7 @@ class CategoryController extends Controller
  
       public function delete(Request $request, int $id) : RedirectResponse {
          $model = Category::find($id);
-         $model -> IsActive = false;
+         $model -> is_active = false;
          $model -> save();
          return redirect('/categories'); 
       }   
