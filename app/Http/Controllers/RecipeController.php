@@ -46,7 +46,7 @@ class RecipeController extends Controller
         ]);
     }
     public function edit(int $id) : View{
-        $model = Recipe::find($id);
+        $model = Recipe::find($id)->with('Categories');
         return view("recipe.edit", ["model" => $model]);
     }
 
