@@ -46,8 +46,8 @@
                     {{ $ingredient->name }}
                 </label>
                 <div class="input-group mt-2">
-                    <input type="number" class="form-control ingredient-quantity" name="ingredients[{{ $ingredient->id }}][quantity]" placeholder="Quantity" disabled>
-                    <input type="text" class="form-control ingredient-unit" name="ingredients[{{ $ingredient->id }}][unit]" placeholder="Unit" disabled>
+                    <input type="number" class="form-control ingredient-quantity" name="ingredients[{{ $ingredient->id }}][Quantity]" placeholder="Quantity" disabled>
+                    <input type="text" class="form-control ingredient-unit" name="ingredients[{{ $ingredient->id }}][Unit]" placeholder="Unit" disabled>
                 </div>
             </div>
             @endforeach
