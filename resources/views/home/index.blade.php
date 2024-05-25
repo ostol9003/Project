@@ -66,19 +66,6 @@
     <div class="carousel-item">
       <img src="/images/rumman-amin-LNn6O_Mt730-unsplash.jpg" class="d-block w-100" alt="...">
     </div>
-    <div class="container">
-        <div class="row gy-3">
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <a href="/recipe_category" style="text-decoration:none">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-title h5 text-black clearfix">Recipes-Categories</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
