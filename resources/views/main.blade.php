@@ -21,7 +21,7 @@
         </h1>
     </header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid justify-content-center">
+        <div class="container-fluid justify-content-between">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('/images/chef-toque-svgrepo-com.svg') }}" alt="Logo">
             </a>
@@ -50,11 +50,24 @@
                     </li>
                 </ul>
             </div>
+            <!-- Formularz wyszukiwania -->
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <form class="d-flex" action="/recipes/{{ request('name') }}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search by name" name="name">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+
         </div>
     </nav>
+
     <hr>
     <div class="container-fluid">
-    <img src="/images/pineapple-supply-co-Q7PclNhVRI0-unsplash 1.png" style="height: 300px;" width="100%">
+        <img src="/images/pineapple-supply-co-Q7PclNhVRI0-unsplash 1.png" style="height: 300px;" width="100%">
     </div>
     <br>
     <div class="container-fluid">
