@@ -87,46 +87,33 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+    <br>
     <div class="container mt-4">
-        <div class="row gy-3">
-            @foreach($models as $Recipe)
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $Recipe->title }}</h5>
-                        <p class="card-text">
-                            <strong>Cooking Time:</strong> {{ $Recipe->cooking_time }} minutes
-                        </p>
-                        <p class="card-text">
-                            <strong>Status:</strong> {{ $Recipe->is_active ? 'Active' : 'Inactive' }}
-                        </p>
-                        <p class="card-text">
-                            <strong>Created At:</strong> {{ $Recipe->created_at->format('d M Y') }}
-                        </p>
-                        <p class="card-text">
-                            <strong>Updated At:</strong> {{ $Recipe->updated_at->format('d M Y') }}
-                        </p>
-                        <p class="card-text">
-                            <strong>Description:</strong> {!! $Recipe->description !!}
-                        </p>
-                        <p class="card-text">
-                            <strong>Owner:</strong> {!! $Recipe->User->name !!} {!! $Recipe->User->email !!}
-                        </p>
-                        <p class="card-text">
-                            <strong>Ingredients:</strong>
-                            @foreach($Recipe->recipeIngredients as $recipeIngredient)
-                            {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->ingredient->quantity !!} {!! $recipeIngredient->ingredient->unit !!})
-                            @endforeach
-                        </p>
-                    </div>
+    <div class="row gy-3">
+        @foreach($models as $model)
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $model->title }}</h5>
+                    <p class="card-text">{!! $model->description !!}</p>
                 </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Cooking Time:</strong> {{ $model->cooking_time }} minutes</li>
+                    <li class="list-group-item"><strong>Owner:</strong> {!! $model->User->name !!} {!! $model->User->email !!}</li>
+                    <li class="list-group-item"><strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}</li>
+                    <li class="list-group-item"><strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}</li>
+                    <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>
+                    <li class="list-group-item"><strong>Ingredients:</strong>
+                        @foreach($model->recipeIngredients as $recipeIngredient)
+                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->quantity !!} {!! $recipeIngredient->unit!!}),
+                        @endforeach</li>
+                </ul>
             </div>
-            @endforeach
-
         </div>
+        @endforeach
     </div>
-
+</div>
 
     <script src="/js/bootstrap.min.js"></script>
 </body>
