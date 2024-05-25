@@ -24,9 +24,9 @@
         <div class="mb-3">
             <label for="user_id" class="form-label">User</label>
             <label for="user_id" class="form-label">User</label>
-            <select class="form-control" name="user_id" required>
-                @foreach($model->user_id as $user)
-                {!! $user }
+            <select class="form-control" name="User_id" required>
+                @foreach($users as $user)
+                 <option value="{{ $user->Id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
         </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Routing\Controller;
 use App\Models\Recipe;
+use App\Models\User;
 
 class RecipeController extends Controller
 {
@@ -22,7 +23,8 @@ class RecipeController extends Controller
         $model = new Recipe();
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        return view("Recipe.create", ["model" => $model]);
+        $users = User::all();
+        return view("Recipe.create", ["model" => $model, "users" => $users]);
     }
     public function edit(int $id): View
     {
