@@ -19,8 +19,7 @@
                 <ul class="list-group list-group-flush">
 
                 <li class="list-group-item"><strong>Ingredient ID:</strong> {{ $model->id}}</li>
-                <li class="list-group-item"><strong>Quantity:</strong> {{ $model->quantity }}</li>
-                <li class="list-group-item"><strong>Unit:</strong> {{ $model->unit }}</li>
+              
                     <li class="list-group-item"><strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}</li>
                     <li class="list-group-item"><strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}</li>
                     <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>

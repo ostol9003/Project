@@ -13,14 +13,6 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" value="{{$model->name}}" required>
         </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Quantity</label>
-            <input type="text" class="form-control" name="name" value="{{$model->quantity}}" required>
-        </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Unit</label>
-            <input type="text" class="form-control" name="name" value="{{$model->unit}}" required>
-        </div>
         <button type="submit" class="btn btn-outline-secondary" type="submit">Create</button>
     </form>
 </div>
