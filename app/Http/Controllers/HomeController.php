@@ -10,7 +10,8 @@ use Illuminate\Routing\Controller;
 class HomeController extends Controller
 {
     public function index() : View{
-        $models = Recipe::where('Is_Active', true)->get()->where('is_promoted',true);
+        $models = Recipe::with('RecipeIngredients.ingredient')
+        ->where('Is_Active', true)->where('is_promoted',true);
         return view("recipe.index", ["models" => $models]);
     }
 }

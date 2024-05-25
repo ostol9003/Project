@@ -16,6 +16,7 @@ class Category extends Model
     private $is_active;
     private $created_at;
     private $updated_at;
+    private $url;
 
     
     public function recipes(): BelongsToMany
