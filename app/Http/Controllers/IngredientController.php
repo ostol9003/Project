@@ -28,8 +28,6 @@ class IngredientController extends Controller
     public function addToDb(Request $request) : RedirectResponse {
         $model = new Ingredient();
         $model -> name = $request->input("Name"); 
-        $model -> quantity = $request->input("Quantity");
-        $model -> unit = $request->input("Unit");
         $model -> created_at = date('Y-m-d');
         $model -> updated_at = date('Y-m-d');
         $model -> is_active = true;
@@ -39,8 +37,6 @@ class IngredientController extends Controller
      public function update(Request $request, int $id) : RedirectResponse {
          $model = Ingredient::find($id);
          $model -> name = $request->input("Name"); 
-         $model -> quantity = $request->input("Quantity");
-         $model -> unit = $request->input("Unit");
          $model -> updated_at = date('Y-m-d');
          $model -> save();
          return redirect('/ingredients'); 

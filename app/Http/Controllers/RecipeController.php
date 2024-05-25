@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Category;
+use App\Models\Ingredient;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Routing\Controller;
 use App\Models\Recipe;
+use App\Models\RecipeIngredient;
+use App\Models\User;
 
 class RecipeController extends Controller
 {
@@ -22,25 +25,50 @@ class RecipeController extends Controller
         $model = new Recipe();
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        return view("Recipe.create", ["model" => $model]);
-    }
-    public function edit(int $id): View
-    {
-        $model = Recipe::find($id);
-        return view("Recipe.edit", ["model" => $model]);
+        $users = User::all();
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+        return view('Recipe.create', [
+            'model' => $model,
+            'users' => $users,
+            'categories' => $categories,
+            'ingredients' => $ingredients
+        ]);
     }
 
     public function addToDb(Request $request): RedirectResponse
     {
         $model = new Recipe();
-        $model->title = $request->input("Title");
-        $model->description = $request->input("Description");
-        $model->cooking_time = $request->input("Cooking_time");
-        $model->user_id = $request->input("User_id");
+        $model->title = $request->input('title');
+        $model->description = $request->input('description');
+        $model->cooking_time = $request->input('cooking_time');
+        $model->user_id = $request->input('user_id');
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        $model->isActive = true;
+        $model->is_active = true;
         $model->save();
+
+        // Attach categories
+        if ($request->has('categories')) {
+            $model->categories()->attach($request->input('categories'));
+        }
+
+        // Attach ingredients with quantities and units
+        if ($request->has('ingredients')) {
+            foreach ($request->input('ingredients') as $ingredientId => $details) {
+                if (isset($details['checked'])) {
+                    $recipeIngredient = new RecipeIngredient();
+                    $recipeIngredient->recipe_id = $model->id;
+                    $recipeIngredient->ingredient_id = $ingredientId;
+                    $recipeIngredient->quantity = $details['quantity'];
+                    $recipeIngredient->unit = $details['unit'];
+                    $recipeIngredient->created_at = date('Y-m-d');
+                    $recipeIngredient->updated_at = date('Y-m-d');
+                    $recipeIngredient->save();
+                }
+            }
+        }
+
         return redirect('/recipes');
     }
     public function update(Request $request, int $id): RedirectResponse

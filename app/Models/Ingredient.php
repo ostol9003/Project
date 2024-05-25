@@ -11,8 +11,6 @@ class Ingredient extends Model {
 
     private $id;
     private $name;
-    private $quantity;
-    private $unit;
     private $is_active;
     private $created_at;
     private $updated_at;

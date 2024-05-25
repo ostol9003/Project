@@ -21,7 +21,7 @@ class RecipeIngredient extends Model
     private $created_at;
     private $updated_at;
 
-    // Definicja relacji
+  
     public function recipe(): BelongsTo
     {
         return $this->belongsTo(Recipe::class);

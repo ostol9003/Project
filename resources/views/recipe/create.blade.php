@@ -23,16 +23,54 @@
         </div>
         <div class="mb-3">
             <label for="user_id" class="form-label">User</label>
-            <label for="user_id" class="form-label">User</label>
             <select class="form-control" name="user_id" required>
-                @foreach($model->user_id as $user)
-                {!! $user }
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
         </div>
+        <div class="mb-3">
+            <label for="categories" class="form-label">Categories</label>
+            <select class="form-control" name="categories[]" multiple required>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            @foreach($ingredients as $ingredient)
+            <div class="form-check">
+                <input class="form-check-input ingredient-checkbox" type="checkbox" name="ingredients[{{ $ingredient->id }}][checked]" id="ingredient-{{ $ingredient->id }}">
+                <label class="form-check-label" for="ingredient-{{ $ingredient->id }}">
+                    {{ $ingredient->name }}
+                </label>
+                <div class="input-group mt-2">
+                    <input type="number" class="form-control ingredient-quantity" name="ingredients[{{ $ingredient->id }}][quantity]" placeholder="Quantity" disabled>
+                    <input type="text" class="form-control ingredient-unit" name="ingredients[{{ $ingredient->id }}][unit]" placeholder="Unit" disabled>
+                </div>
+            </div>
+            @endforeach
         </div>
         <button type="submit" class="btn btn-outline-secondary">Create</button>
     </form>
 </div>
 <br>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.ingredient-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const isChecked = checkbox.checked;
+                const quantityInput = checkbox.closest('.form-check').querySelector('.ingredient-quantity');
+                const unitInput = checkbox.closest('.form-check').querySelector('.ingredient-unit');
+                quantityInput.disabled = !isChecked;
+                unitInput.disabled = !isChecked;
+            });
+        });
+    });
+</script>
 @endsection

@@ -25,7 +25,7 @@
                     <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>
                     <li class="list-group-item"><strong>Ingredients:</strong>
                         @foreach($model->recipeIngredients as $recipeIngredient)
-                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->ingredient->quantity !!} {!! $recipeIngredient->ingredient->unit!!}),
+                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->quantity !!} {!! $recipeIngredient->unit!!}),
                         @endforeach</li>
                 </ul>
                 <div class="card-body row">
