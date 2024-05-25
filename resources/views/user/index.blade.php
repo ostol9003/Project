@@ -3,7 +3,7 @@
 @section('title', 'All users')
 
 @section('menu')
-<a class="btn btn-outline-secondary" href="/Recipe/create">New user</a>
+<a class="btn btn-outline-secondary" href="/users/create">New user</a>
 @endsection
 
 @section('content')
@@ -12,7 +12,6 @@
         @foreach($models as $model)
         <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">ID: {{ $model->name}}</h5>
                 </div>
@@ -26,17 +25,17 @@
                 </ul>
                 <div class="card-body row">
                     <div class="col">
-                        <a href="/Recipe/{{ $model->id }}/edit" class="btn btn-outline-secondary">
+                    <form>
+                        <a href="/users/edit/{{$model->id}}" class="btn btn-outline-secondary">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
+                        </form>
                     </div>
                     <div class="col">
-                        <form action="/Recipe/{{ $model->id }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">
-                                <i class="bi bi-trash"></i> Delete
-                            </button>
+                        @csrf
+                    <form method="post" action="/users/delete/{!! $model->id !!}">
+                                @csrf
+                                <button class="btn btn-outline-danger" type="submit">Delete</button>
                         </form>
                     </div>
                 </div>

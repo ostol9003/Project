@@ -33,7 +33,7 @@ class IngredientController extends Controller
         $model -> is_active = true;
         $model->url = $request->input('url');
         $model -> save();
-        return redirect('/categories'); 
+        return redirect('/ingredients'); 
      }   
      public function update(Request $request, int $id) : RedirectResponse {
          $model = Ingredient::find($id);
