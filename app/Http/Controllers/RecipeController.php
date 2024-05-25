@@ -45,10 +45,14 @@ class RecipeController extends Controller
             'ingredients' => $ingredients
         ]);
     }
-    public function edit(int $id) : View{
-        $model = Recipe::find($id);
-        return view("recipe.edit", ["model" => $model]);
-    }
+    public function edit(int $id): View
+{
+    $model = Recipe::with('categories')->with('user')->find($id);
+    $users = User::all();
+    $categories = Category::all();
+    return view("recipe.edit", ["model" => $model,"users" => $users, "categories" => $categories]);
+}
+
 
     public function addToDb(Request $request): RedirectResponse
     {
