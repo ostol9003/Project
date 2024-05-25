@@ -44,8 +44,6 @@ class RecipeIngredientController extends Controller
     public function update(Request $request, int $id): RedirectResponse
     {
         $model = RecipeIngredient::find($id);
-        $model->recipe_id = $request->input("recipe_id");
-        $model->ingredient_id = $request->input("ingredient_id");
         $model->quantity = $request->input("quantity");
         $model->unit = $request->input("unit");
         $model->updated_at = date('Y-m-d');
