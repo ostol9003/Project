@@ -3,7 +3,7 @@
 @section('title', 'Ingredients')
 
 @section('menu')
-    <a class="btn btn-outline-secondary" href="/RecipeIngredient/create">New ingredient</a>
+    <a class="btn btn-outline-secondary" href="/ingredients/create">New ingredient</a>
 @endsection
 
 @section('content')
@@ -14,11 +14,11 @@
             <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title">{{ $model->id }}</h5>
+                <h5 class="card-title">{{ $model->name}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Recipe ID:</strong> {{ $model->recipe_id }}</li>
-                <li class="list-group-item"><strong>Ingredient ID:</strong> {{ $model->ingredient_id }}</li>
+
+                <li class="list-group-item"><strong>Ingredient ID:</strong> {{ $model->id}}</li>
                 <li class="list-group-item"><strong>Quantity:</strong> {{ $model->quantity }}</li>
                 <li class="list-group-item"><strong>Unit:</strong> {{ $model->unit }}</li>
                     <li class="list-group-item"><strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}</li>

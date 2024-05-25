@@ -3,7 +3,7 @@
 @section('title', 'All recipes')
 
 @section('menu')
-<a class="btn btn-outline-secondary" href="/Recipe/create">Add new recipe</a>
+<a class="btn btn-outline-secondary" href="/recipes/create">New recipe</a>
 @endsection
 
 @section('content')

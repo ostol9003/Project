@@ -3,7 +3,7 @@
 @section('title', 'Categories')
 
 @section('menu')
-<a class="btn btn-outline-secondary" href="/Category/create">New category</a>
+<a class="btn btn-outline-secondary" href="/categories/create">New category</a>
 @endsection
 
 @section('content')
