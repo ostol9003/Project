@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Ingredient;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 use App\Models\RecipeIngredient;
 use Illuminate\Http\RedirectResponse;
@@ -20,7 +23,13 @@ class RecipeIngredientController extends Controller
         $model = new RecipeIngredient();
         $model->created_at = date('Y-m-d');
         $model->updated_at = date('Y-m-d');
-        return view("RecipeIngredient.create", ["model" => $model]);
+        $recipes = Recipe::all();
+        $ingredients = Ingredient::all();
+        return view("RecipeIngredient.create", [
+            'model' => $model,
+            'recipes' => $recipes,
+            'ingredients' => $ingredients
+        ]);
     }
     public function edit(int $id): View
     {

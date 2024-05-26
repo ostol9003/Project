@@ -26,8 +26,8 @@
                 <input type="text" class="form-control" name="title" value="{{ old('title', $model->title) }}" required>
                 <div class="input-group-append">
                     <div class="input-group-text">
-                        <input type="checkbox" class="form-check-input" name="is_promoted" id="is_promoted">
-                        <label class="form-check-label" for="is_promoted">  Promoted  </label>
+                        <input type="checkbox" class="form-check-input" name="is_promoted" id="is_promoted" {{ $model->is_promoted ? 'checked' : '' }}>
+                        <label class="form-check-label" for="is_promoted"> Promoted </label>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <label for="user_id" class="form-label">User</label>
                 <select class="form-select" name="user_id" required>
                     @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}" {{ $user->id == $model->user_id ? 'selected' : '' }}>{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -61,7 +61,7 @@
                 <label for="categories" class="form-label">Category</label>
                 <select class="form-select form-control" name="categories[]" multiple required style="height: 100%;">
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ in_array($category->id, $model->categories->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -72,4 +72,3 @@
 </div>
 <br>
 @endsection
-

@@ -2,6 +2,10 @@
 
 @section('title', 'Recipe ingredient')
 
+@section('menu')
+    <a class="btn btn-outline-secondary" href="/recipe-ingredient/create">New recipe ingredient</a>
+@endsection
+
 @section('content')
 <div class="container mt-4">
     <div class="row gy-3">
@@ -26,6 +30,13 @@
                         <a href="/recipe-ingredient/edit/{{$model->id}}" class="btn btn-outline-secondary">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
+                    </div>
+                    <div class="col">
+                    @csrf
+                            <form method="post" action="/recipe-ingredient/delete/{!! $model->id !!}">
+                                @csrf
+                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                        </form>
                     </div>
                 </div>
 

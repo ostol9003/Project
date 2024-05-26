@@ -10,8 +10,8 @@
 <div class="container mt-4">
     <div class="row gy-3">
         @foreach($models as $model)
-        <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+            <div class="card h-100">
                 <img src="{{ $model->url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ $model->title }}</h5>
@@ -30,24 +30,19 @@
                 </ul>
                 <div class="card-body row">
                     <div class="col">
-                    <form>
                         <a href="/recipes/edit/{{$model->id}}" class="btn btn-outline-secondary">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
-                        </form>
                     </div>
                     <div class="col">
-                    @csrf
-                            <form method="post" action="/recipes/delete/{!! $model->id !!}">
-                                @csrf
-                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                        <form method="post" action="/recipes/delete/{!! $model->id !!}">
+                            @csrf
+                            <button class="btn btn-outline-danger" type="submit">Delete</button>
                         </form>
-                       
                     </div>
                 </div>
             </div>
         </div>
-
         @endforeach
     </div>
 </div>

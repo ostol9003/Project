@@ -57,7 +57,7 @@
                 <div class="container-fluid">
                     <form class="d-flex" action="/recipes/{{ request('name') }}" method="GET">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search by name" name="name">
+                            <input type="text" class="form-control" placeholder="Search recipe by name" name="name">
                             <button class="btn btn-outline-secondary" type="submit">Search</button>
                         </div>
                     </form>
@@ -89,33 +89,34 @@
     </div>
     <br>
     <div class="container mt-4">
-        <div class="row gy-3">
-            @foreach($models as $model)
-            <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ $model->url }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $model->title }}</h5>
-                        <p class="card-text">{!! $model->description !!}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Cooking Time:</strong> {{ $model->cooking_time }} minutes</li>
-                        <li class="list-group-item"><strong>Owner:</strong> {!! $model->User->name !!} {!! $model->User->email !!}</li>
-                        <li class="list-group-item"><strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}</li>
-                        <li class="list-group-item"><strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}</li>
-                        <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>
-                        <li class="list-group-item"><strong>Ingredients:</strong>
-                            @foreach($model->recipeIngredients as $recipeIngredient)
-                            {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->quantity !!} {!! $recipeIngredient->unit!!}),
-                            @endforeach</li>
-                    </ul>
+    <div class="row gy-3">
+        @foreach($models as $model)
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+            <div class="card h-100">
+                <img src="{{ $model->url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $model->title }}</h5>
+                    <p class="card-text">{!! $model->description !!}</p>
                 </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Cooking Time:</strong> {{ $model->cooking_time }} minutes</li>
+                    <li class="list-group-item"><strong>Owner:</strong> {!! $model->User->name !!} {!! $model->User->email !!}</li>
+                    <li class="list-group-item"><strong>Status:</strong> {{ $model->is_active ? 'Active' : 'Inactive' }}</li>
+                    <li class="list-group-item"><strong>Created At:</strong> {{ $model->created_at->format('d M Y') }}</li>
+                    <li class="list-group-item"><strong>Updated At:</strong> {{ $model->updated_at->format('d M Y') }}</li>
+                    <li class="list-group-item"><strong>Ingredients:</strong>
+                        @foreach($model->recipeIngredients as $recipeIngredient)
+                        {!! $recipeIngredient->ingredient->name !!} ({!! $recipeIngredient->quantity !!} {!! $recipeIngredient->unit!!}),
+                        @endforeach</li>
+                </ul>
             </div>
-    
-            @endforeach
         </div>
+        @endforeach
     </div>
+</div>
 
+<br>
+<br>
     <script src="/js/bootstrap.min.js"></script>
 </body>
 
