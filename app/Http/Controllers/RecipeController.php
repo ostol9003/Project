@@ -18,17 +18,22 @@ class RecipeController extends Controller
     public function index(Request $request): View
     {
         $name = $request->input('name');
-    
+
         if ($name) {
-            $models = Recipe::with('recipeIngredients.ingredient')
-                ->where('is_active', true)
+            $models = Recipe::with('RecipeIngredients.ingredient', 'categories')
+                ->where('Is_Active', true)
                 ->where('title', 'LIKE', "%$name%")
+                ->orWhereHas('categories', function ($query) use ($name) {
+                    $query->where('name','LIKE',"%$name%");})
+                ->orWhereHas('recipeIngredients.ingredient', function ($query) use ($name) {
+                    $query->where('name','LIKE',"%$name%");})
                 ->get();
         } else {
-            $models = Recipe::with('recipeIngredients.ingredient')->where('is_active', true)->get();
+            $models = Recipe::with('RecipeIngredients.ingredient')->where('Is_Active', true)->get();
         }
         return view("Recipe.index", ["models" => $models]);
     }
+
     public function create(): View
     {
         $model = new Recipe();
