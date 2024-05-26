@@ -8,9 +8,9 @@
 <div class="container mt-5">
     <h1>Create Recipe Ingredient</h1>
 
-    <form method="POST" action="/recipe-ingredient/update/{{ $model->id }}">
+    <form method="POST" action="/recipe-ingredient/add-to-db">
         @csrf
-        @method('PUT')
+   
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="recipe_id" class="form-label">Recipe</label>
