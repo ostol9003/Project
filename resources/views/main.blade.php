@@ -55,7 +55,7 @@
                 <div class="container-fluid">
                     <form class="d-flex" action="/recipes/search" method="GET">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search recipe by name" name="name">
+                            <input type="text" class="form-control" placeholder="Search" name="name">
                             <button class="btn btn-outline-secondary" type="submit">Search</button>
                         </div>
                     </form>
