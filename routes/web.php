@@ -33,7 +33,7 @@ Route::post("/ingredients/delete/{id}", [IngredientController::class, "delete"])
 
 // Recipe
 Route::get("/recipes", [RecipeController::class, "index"]);
-Route::get("/recipes/search/{name}", [RecipeController::class, "index"]);
+Route::get("/recipes/search", [RecipeController::class, "index"]);
 Route::get("/recipes/create", [RecipeController::class, "create"]);
 Route::get("/recipes/edit/{id}", [RecipeController::class, "edit"]);
 

@@ -53,14 +53,14 @@
             <!-- Formularz wyszukiwania -->
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <form class="d-flex" action="/recipes/{{ request('name') }}" method="GET">
+                    <form class="d-flex" action="/recipes/search" method="GET">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search by name" name="name">
                             <button class="btn btn-outline-secondary" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
-            </nav>
+            </nav>            
 
         </div>
     </nav>
