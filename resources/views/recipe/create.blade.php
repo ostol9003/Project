@@ -34,7 +34,7 @@
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Image url</label>
-            <input type="text" class="form-control" name="url" value="{{$model->url}}" required>
+            <input type="text" class="form-control" name="url" value="{{ old('url', $model->url) }}" required>
         </div>
 
         <div class="row">
