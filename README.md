@@ -1,4 +1,4 @@
-# Graduation Project (Advanced Webside Programming)
+# Graduation Project (Advanced Website Programming)
 
 ## Project Description
 
